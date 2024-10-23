@@ -1,15 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package Clases;
 
-/**
- *
- * @author USER
- */
-public class ClienteNatural {
+public class ClienteNatural extends Cliente{
+    private String fechaNacimiento;
+
+    public ClienteNatural(String fechaNacimiento, String codigoCliente, String documentoIdentificacion, String nombre, String telefono, String direccion, String email) {
+        super(codigoCliente, documentoIdentificacion, nombre, telefono, direccion, email);
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
     
 }
