@@ -167,8 +167,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReservasActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        RegistroClientes nuevaVentana = new RegistroClientes();
-        nuevaVentana.setVisible(true);
+        
     }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
