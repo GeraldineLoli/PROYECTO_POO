@@ -1,3 +1,5 @@
+package GUI;
+
 
 import ArrayList.ClienteList;
 import Clases.Cliente;
@@ -13,11 +15,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class RegistroClientes extends javax.swing.JFrame {
 
-    ClienteList listaClientes = new ClienteList
-    
-    /**
-     *
-     */
+    ClienteList listaClientes = new ClienteList();
+            
     public RegistroClientes() {
         initComponents();
     }

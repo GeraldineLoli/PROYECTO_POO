@@ -45,6 +45,9 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
         btnListar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHabitaciones = new javax.swing.JTable();
+        btnMenu = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +91,27 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblHabitaciones);
 
+        btnMenu.setText("Volver al menú");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,22 +127,32 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(rbOcupada)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rbLibre))
-                            .addComponent(btnListar, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap())
+                        .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(33, 33, 33)
+                                    .addComponent(jLabel5))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnMenu)
+                                    .addGap(28, 28, 28)
+                                    .addComponent(btnEliminar)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addComponent(rbOcupada)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(rbLibre))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(27, 27, 27)
+                                    .addComponent(btnRegistrar)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnListar)))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,17 +173,23 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
                     .addComponent(rbOcupada)
                     .addComponent(rbLibre))
                 .addGap(18, 18, 18)
-                .addComponent(btnListar)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMenu)
+                    .addComponent(btnRegistrar)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnListar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,6 +200,27 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        DefaultTableModel dtm = (DefaultTableModel) tblHabitaciones.getModel();
+        dtm.setRowCount(0);
+        
+        for (int i=0; i<listaHabitaciones.tamaño(); i++) {
+            dtm.addRow(new Object[]{
+                listaHabitaciones.obtener(i).getNumHabitacion(),
+                listaHabitaciones.obtener(i).getTipoHabitacion(),
+                listaHabitaciones.obtener(i).isDisponibilidad() ? "Libre" : "Ocupada",
+                listaHabitaciones.obtener(i).getNumeroTelefonoHabitacion()
+            });
+        }
+        
+    }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        Menu pagPrincipal = new Menu();
+        pagPrincipal.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         if (txtNumero.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "[x] Debe ingresar un número de habitación");
             return;
@@ -197,6 +258,33 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
         
         Habitacion habitacion = new Habitacion(numHabitacion, tipoHabitacion, disponibilidad, numeroTelefonoHabitacion);
         listaHabitaciones.agregar(habitacion);
+        JOptionPane.showMessageDialog(this, "Habitación agregada.");
+        
+        limpiarControles();
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int filaSeleccionada = tblHabitaciones.getSelectedRow();
+
+        if (filaSeleccionada >= 0) 
+        {
+            Habitacion habitacionSeleccionada = listaHabitaciones.obtener(filaSeleccionada);
+                listaHabitaciones.quitar(habitacionSeleccionada);
+                actualizarTabla();
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una habitación.");
+        }
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void limpiarControles(){
+        txtNumero.setText("");
+        txtTelefono.setText("");
+        buttonGroup1.clearSelection();
+        cboTipo.setSelectedIndex(0);
+    }
+    
+    private void actualizarTabla() {
         DefaultTableModel dtm = (DefaultTableModel) tblHabitaciones.getModel();
         dtm.setRowCount(0);
         
@@ -208,9 +296,8 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
                 listaHabitaciones.obtener(i).getNumeroTelefonoHabitacion()
             });
         }
-        JOptionPane.showMessageDialog(this, "Habitación agregada.");
-    }//GEN-LAST:event_btnListarActionPerformed
-
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -247,7 +334,10 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnListar;
+    private javax.swing.JButton btnMenu;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cboTipo;
     private javax.swing.JLabel jLabel1;

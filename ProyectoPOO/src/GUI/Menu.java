@@ -3,6 +3,7 @@ package GUI;
 
 import GUI.RegistroHabitaciones;
 import GUI.ReservaDeHabitaciones;
+import GUI.RegistroClientes;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -157,17 +158,21 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabitacionesActionPerformed
-        RegistroHabitaciones nuevaVentana = new RegistroHabitaciones();
-        nuevaVentana.setVisible(true);
+        RegistroHabitaciones regHabitacion = new RegistroHabitaciones();
+        regHabitacion.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnHabitacionesActionPerformed
 
     private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
-        ReservaDeHabitaciones nuevaVentana = new ReservaDeHabitaciones();
-        nuevaVentana.setVisible(true);
+        ReservaDeHabitaciones regReserva = new ReservaDeHabitaciones();
+        regReserva.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnReservasActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        
+        RegistroClientes regCliente = new RegistroClientes();
+        regCliente.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
