@@ -1,16 +1,16 @@
 
 package Clases;
 
-public class Factura {
+public class Tarifa {
     private Cliente cliente;
     private Reserva reserva;
     private double montoTotal;
     private String fechaEmision;
 
-    public Factura() {
+    public Tarifa() {
     }
     
-    public Factura(Cliente cliente, Reserva reserva, double montoTotal, String fechaEmision) {
+    public Tarifa(Cliente cliente, Reserva reserva, double montoTotal, String fechaEmision) {
         this.cliente = cliente;
         this.reserva = reserva;
         this.montoTotal = montoTotal;

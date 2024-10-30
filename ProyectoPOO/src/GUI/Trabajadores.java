@@ -5,6 +5,7 @@
 package GUI;
 
 import Clases.Trabajador;
+import Clases.ValidacionesTrabajador;
 import MiniBaseDeDatos.TrabajadorGuardado;
 import javax.swing.JOptionPane;
 
@@ -68,9 +69,14 @@ public class Trabajadores extends javax.swing.JFrame {
 
         jLabel8.setText("Puesto:");
 
-        cmbPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Recepcionista", "Personal de Limpieza", "Cocina", "Gerente de Hotel", "Botones", " " }));
+        cmbPuesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Recepcionista", "Personal de Limpieza", "Cocina", "Gerente de Hotel", "Botones" }));
 
         btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -189,28 +195,44 @@ public class Trabajadores extends javax.swing.JFrame {
        String direccion = txtDireccion.getText();
        String email = txtEmail.getText();
        String codigo = txtCodigo.getText();
-       String puesto = cmbPuesto.getSelectedItem().toString();
        
-       if (documento.isEmpty() || nombre.isEmpty() || telefono.isEmpty() || direccion.isEmpty() || email.isEmpty() || codigo.isEmpty()){
-           JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
-           return;
-       }
-       
-       Trabajador trabajador = new Trabajador(
-       codigo,
-       puesto,
-       documento,
-       nombre,
-       telefono,
-       direccion,
-       email);
+       if (!ValidacionesTrabajador.validarTodosCampos(
+            documento,
+            nombre,
+            telefono,
+            direccion,
+            email,
+            codigo,
+            cmbPuesto)) {
+            return;
+        }
+        Trabajador trabajador = new Trabajador(
+            codigo,
+            cmbPuesto.getSelectedItem().toString(),
+            documento,
+            nombre,
+            telefono,
+            direccion,
+            email
+            );
        
        TrabajadorGuardado.guardarTrabajador(trabajador);
-       
-       JOptionPane.showMessageDialog(this, "Trabajador guardadp exitosamente", "Exito", JOptionPane.INFORMATION_MESSAGE);
-       
-       limpiarCampos();
+    
+    // Mostrar mensaje de éxito
+    JOptionPane.showMessageDialog(this,
+        "Trabajador guardado exitosamente",
+        "Éxito",
+        JOptionPane.INFORMATION_MESSAGE);
+    
+    // Limpiar los campos
+    limpiarCampos();
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        ReservaDeHabitaciones pf = new ReservaDeHabitaciones();
+        pf.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void limpiarCampos(){
         txtDocumento.setText("");

@@ -76,7 +76,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="Registrar" min="-2" max="-2" attributes="0"/>
+                          <Component id="Listar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="Limpiar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -172,7 +172,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Salir" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Limpiar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Registrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Listar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -235,10 +235,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtcorreo">
         </Component>
-        <Component class="javax.swing.JButton" name="Registrar">
+        <Component class="javax.swing.JButton" name="Listar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Registrar"/>
+            <Property name="text" type="java.lang.String" value="Listar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Limpiar">
           <Properties>

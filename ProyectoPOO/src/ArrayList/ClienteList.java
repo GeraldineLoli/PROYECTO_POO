@@ -22,4 +22,8 @@ public class ClienteList {
       public List<Cliente> listar(){
           return this.listaCliente;
       }
+
+    public int tamaño() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

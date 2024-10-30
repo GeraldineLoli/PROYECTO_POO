@@ -51,6 +51,32 @@ public class TrabajadorGuardado {
                     trabajadores.add(trabajador);
                 }
             }
+        } catch (IOException e){
+            System.err.println("Error al cargar los trabajadores: " + e.getMessage());
         }
+        return trabajadores;
+    }
+    
+    public static Trabajador buscarPorDocumento(String documento){
+        try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_TRABAJADORES))){
+            String linea;
+            while((linea=br.readLine()) != null){
+                String[] datos = linea.split(",");
+                if(datos[0].equals(documento)){
+                    return new Trabajador(
+                    datos[5],
+                    datos[6],
+                    datos[0],
+                    datos[1],
+                    datos[2],
+                    datos[3],
+                    datos[4]
+                    );
+                }
+            }
+        } catch (IOException e){
+            System.err.println("Error al cargar los trabajadores: " + e.getMessage());
+        }
+        return null;
     }
 }

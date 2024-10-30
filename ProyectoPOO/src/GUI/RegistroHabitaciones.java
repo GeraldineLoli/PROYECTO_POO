@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package GUI;
 
-import java.util.Vector;
+import ArrayList.HabitacionList;
+import Clases.Habitacion;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -16,9 +15,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class RegistroHabitaciones extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegistroHabitaciones
-     */
+    HabitacionList listaHabitaciones = new HabitacionList();
+    
     public RegistroHabitaciones() {
         initComponents();
     }
@@ -36,17 +34,15 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cboTipo = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rbOcupada = new javax.swing.JRadioButton();
+        rbLibre = new javax.swing.JRadioButton();
         btnListar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHabitaciones = new javax.swing.JTable();
 
@@ -60,36 +56,22 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
 
         jLabel3.setText("Tipo de habitación:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sencilla", "Doble", "Suite", "Familiar", "Accesible" }));
+        cboTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sencilla", "Doble", "Suite", "Familiar", "Accesible" }));
 
         jLabel4.setText("Teléfono de la habitación:");
 
         jLabel5.setText("Reservada:");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Sí");
+        buttonGroup1.add(rbOcupada);
+        rbOcupada.setText("Ocupada");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("No");
+        buttonGroup1.add(rbLibre);
+        rbLibre.setText("Libre");
 
         btnListar.setText("Listar");
         btnListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListarActionPerformed(evt);
-            }
-        });
-
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
             }
         });
 
@@ -101,7 +83,7 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "N° de habitación", "Tipo de habitación", "Teléfono de la habitación", "Reservada"
+                "N° de habitación", "Tipo de habitación", "Reservada", "Teléfono de la habitación"
             }
         ));
         jScrollPane1.setViewportView(tblHabitaciones);
@@ -117,33 +99,25 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(78, 78, 78)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton1))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnRegistrar)
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnListar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSalir)))))
+                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(rbOcupada)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rbLibre))
+                            .addComponent(btnListar, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,21 +128,18 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(rbOcupada)
+                    .addComponent(rbLibre))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnListar)
-                    .addComponent(btnSalir)
-                    .addComponent(btnRegistrar))
+                .addComponent(btnListar)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -188,17 +159,57 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        
-    }//GEN-LAST:event_btnSalirActionPerformed
-
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        
-    }//GEN-LAST:event_btnListarActionPerformed
+        if (txtNumero.getText().length() == 0) {
+            JOptionPane.showMessageDialog(this, "[x] Debe ingresar un número de habitación");
+            return;
+        }
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+        if (!rbOcupada.isSelected() && !rbLibre.isSelected()) {
+            JOptionPane.showMessageDialog(this, "[x] Debe seleccionar un estado de la habitación");
+            return;
+        }
+
+        if (txtTelefono.getText().length() == 0) {
+            JOptionPane.showMessageDialog(this, "[x] Debe ingresar un número telefónico");
+            return;
+        }
+
+        String num = txtNumero.getText();
+        Pattern numIngresado = Pattern.compile("^\\d+$");
+        Matcher validarNum = numIngresado.matcher(num);
+        if (!validarNum.matches()) {
+            JOptionPane.showMessageDialog(this, "El número de habitación solo debe contener números.");
+            return;
+        }
+
+        String numTelefono = txtTelefono.getText();
+        Pattern telefonoIngresado = Pattern.compile("^\\d+$");
+        Matcher validarTelefono = telefonoIngresado.matcher(numTelefono);
+        if (!validarTelefono.matches()) {
+            JOptionPane.showMessageDialog(this, "El teléfono solo debe contener números.");
+            return;
+        }
+        int numHabitacion = Integer.parseInt(txtNumero.getText());
+        String tipoHabitacion = (String) cboTipo.getSelectedItem();
+        boolean disponibilidad = rbLibre.isSelected();
+        String numeroTelefonoHabitacion = txtTelefono.getText();
+        
+        Habitacion habitacion = new Habitacion(numHabitacion, tipoHabitacion, disponibilidad, numeroTelefonoHabitacion);
+        listaHabitaciones.agregar(habitacion);
+        DefaultTableModel dtm = (DefaultTableModel) tblHabitaciones.getModel();
+        dtm.setRowCount(0);
+        
+        for (int i=0; i<listaHabitaciones.tamaño(); i++) {
+            dtm.addRow(new Object[]{
+                listaHabitaciones.obtener(i).getNumHabitacion(),
+                listaHabitaciones.obtener(i).getTipoHabitacion(),
+                listaHabitaciones.obtener(i).isDisponibilidad() ? "Libre" : "Ocupada",
+                listaHabitaciones.obtener(i).getNumeroTelefonoHabitacion()
+            });
+        }
+        JOptionPane.showMessageDialog(this, "Habitación agregada.");
+    }//GEN-LAST:event_btnListarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,21 +248,19 @@ public class RegistroHabitaciones extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListar;
-    private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnSalir;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cboTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JRadioButton rbLibre;
+    private javax.swing.JRadioButton rbOcupada;
     private javax.swing.JTable tblHabitaciones;
+    private javax.swing.JTextField txtNumero;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

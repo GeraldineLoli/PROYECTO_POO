@@ -1,3 +1,9 @@
+package GUI;
+
+
+import GUI.RegistroHabitaciones;
+import GUI.ReservaDeHabitaciones;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -27,11 +33,11 @@ public class Menu extends javax.swing.JFrame {
 
         MenuPrincipal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        RegistroClientes = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
         txtRClientes = new javax.swing.JLabel();
         txtRReserva = new javax.swing.JLabel();
-        RegistroReservas = new javax.swing.JButton();
-        RegistroHabitacion = new javax.swing.JButton();
+        btnReservas = new javax.swing.JButton();
+        btnHabitaciones = new javax.swing.JButton();
         txtRHabitaciones = new javax.swing.JLabel();
         buttonSalir = new javax.swing.JButton();
 
@@ -41,9 +47,14 @@ public class Menu extends javax.swing.JFrame {
         MenuPrincipal.setForeground(new java.awt.Color(102, 0, 102));
         MenuPrincipal.setText("MENÚ PRINCIPAL");
 
-        RegistroClientes.setBackground(new java.awt.Color(239, 227, 239));
-        RegistroClientes.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        RegistroClientes.setText("Registro de Clientes");
+        btnClientes.setBackground(new java.awt.Color(239, 227, 239));
+        btnClientes.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnClientes.setText("Registro de Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
         txtRClientes.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         txtRClientes.setText("-Acceda al formulario de registro de clientes.");
@@ -51,13 +62,23 @@ public class Menu extends javax.swing.JFrame {
         txtRReserva.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         txtRReserva.setText("-Gestione reservas de los clientes.");
 
-        RegistroReservas.setBackground(new java.awt.Color(239, 230, 239));
-        RegistroReservas.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        RegistroReservas.setText("Registro de reservas");
+        btnReservas.setBackground(new java.awt.Color(239, 230, 239));
+        btnReservas.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnReservas.setText("Registro de reservas");
+        btnReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReservasActionPerformed(evt);
+            }
+        });
 
-        RegistroHabitacion.setBackground(new java.awt.Color(239, 230, 239));
-        RegistroHabitacion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        RegistroHabitacion.setText("Registro de Habitaciones");
+        btnHabitaciones.setBackground(new java.awt.Color(239, 230, 239));
+        btnHabitaciones.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        btnHabitaciones.setText("Registro de Habitaciones");
+        btnHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHabitacionesActionPerformed(evt);
+            }
+        });
 
         txtRHabitaciones.setFont(new java.awt.Font("Segoe UI Emoji", 0, 14)); // NOI18N
         txtRHabitaciones.setText("-Registre la información sobre las habitaciones del hotel.");
@@ -75,9 +96,9 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(RegistroHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(RegistroReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(RegistroClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnHabitaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtRClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -93,15 +114,15 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegistroClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtRClientes))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRReserva)
-                    .addComponent(RegistroReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegistroHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtRHabitaciones))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(buttonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,6 +155,20 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabitacionesActionPerformed
+        RegistroHabitaciones nuevaVentana = new RegistroHabitaciones();
+        nuevaVentana.setVisible(true);
+    }//GEN-LAST:event_btnHabitacionesActionPerformed
+
+    private void btnReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservasActionPerformed
+        ReservaDeHabitaciones nuevaVentana = new ReservaDeHabitaciones();
+        nuevaVentana.setVisible(true);
+    }//GEN-LAST:event_btnReservasActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,9 +207,9 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel MenuPrincipal;
-    private javax.swing.JButton RegistroClientes;
-    private javax.swing.JButton RegistroHabitacion;
-    private javax.swing.JButton RegistroReservas;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnHabitaciones;
+    private javax.swing.JButton btnReservas;
     private javax.swing.JButton buttonSalir;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel txtRClientes;
