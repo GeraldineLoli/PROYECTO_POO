@@ -1,7 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
+import ArrayList.ClienteList;
+import Clases.Cliente;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -9,8 +13,10 @@
  */
 public class RegistroClientes extends javax.swing.JFrame {
 
+    ClienteList listaClientes = new ClienteList
+    
     /**
-     * Creates new form RegistroClientes
+     *
      */
     public RegistroClientes() {
         initComponents();
@@ -44,7 +50,7 @@ public class RegistroClientes extends javax.swing.JFrame {
         txtdirec = new javax.swing.JTextField();
         correo = new javax.swing.JLabel();
         txtcorreo = new javax.swing.JTextField();
-        Registrar = new javax.swing.JButton();
+        Listar = new javax.swing.JButton();
         Limpiar = new javax.swing.JButton();
         Salir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -73,7 +79,12 @@ public class RegistroClientes extends javax.swing.JFrame {
 
         correo.setText("Correo Electrónico:");
 
-        Registrar.setText("Registrar");
+        Listar.setText("Listar");
+        Listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListarActionPerformed(evt);
+            }
+        });
 
         Limpiar.setText("Limpiar");
 
@@ -94,7 +105,7 @@ public class RegistroClientes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Registrar)
+                        .addComponent(Listar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Limpiar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -172,7 +183,7 @@ public class RegistroClientes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Salir)
                     .addComponent(Limpiar)
-                    .addComponent(Registrar)))
+                    .addComponent(Listar)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,6 +212,64 @@ public class RegistroClientes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarActionPerformed
+       if (textNC.getText().length() == 0) {
+         JOptionPane.showMessageDialog(this, "[x] Debe ingresar un número de cliente");
+         return;
+      }
+
+       if (txtNombre.getText().length() == 0) {
+         JOptionPane.showMessageDialog(this, "[x] Debe ingresar el nombre del cliente");
+         return;
+      }
+
+       if (txttel.getText().length() == 0) {
+         JOptionPane.showMessageDialog(this, "[x] Debe ingresar un número telefónico");
+         return;
+      }
+
+       String numCliente = textNC.getText();
+       Pattern clienteIngresado = Pattern.compile("^\\d+$");
+       Matcher validarCliente = clienteIngresado.matcher(numCliente);
+      if (!validarCliente.matches()) {
+        JOptionPane.showMessageDialog(this, "El número de cliente solo debe contener números.");
+        return;
+      }
+
+       String numTelefono = txttel.getText();
+       Pattern telefonoIngresado = Pattern.compile("^\\d+$");
+       Matcher validarTelefono = telefonoIngresado.matcher(numTelefono);
+      if (!validarTelefono.matches()) {
+       JOptionPane.showMessageDialog(this, "El teléfono solo debe contener números.");
+       return;
+      }
+
+       String codigoCliente = textNC.getText();
+       String documentoIdentificacion = txtRuc.getText();
+       String nombre = txtNombre.getText();
+       String telefono = txttel.getText();
+       String direccion = txtdirec.getText();
+       String email = txtcorreo.getText();
+
+      Cliente cliente = new Cliente(codigoCliente, documentoIdentificacion, nombre, telefono, direccion, email);
+      listaClientes.agregar(cliente);
+      DefaultTableModel dtm = (DefaultTableModel) tblClientes.getModel();
+      dtm.setRowCount(0);
+
+
+       for (int i = 0; i<listaClientes.tamaño(); i++) {
+        dtm.addRow(new Object[]{
+        listaClientes.obtener(i).getCodigoCliente(),
+        listaClientes.obtener(i).getDocumentoIdentificacion(),
+        listaClientes.obtener(i).getNombre(),
+        listaClientes.obtener(i).getTelefono(),
+        listaClientes.obtener(i).getDireccion(),
+        listaClientes.obtener(i).getEmail()
+        });
+      }
+     JOptionPane.showMessageDialog(this, "Cliente agregado.");
+    }//GEN-LAST:event_ListarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,10 +309,10 @@ public class RegistroClientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FechaN;
     private javax.swing.JButton Limpiar;
+    private javax.swing.JButton Listar;
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel NumCliente;
     private javax.swing.JLabel RazónSocial;
-    private javax.swing.JButton Registrar;
     private javax.swing.JLabel Registro;
     private javax.swing.JButton Salir;
     private javax.swing.ButtonGroup buttonGroup1;
