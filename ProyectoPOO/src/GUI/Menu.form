@@ -72,9 +72,9 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="RegistroHabitacion" max="32767" attributes="0"/>
-                              <Component id="RegistroReservas" alignment="0" max="32767" attributes="0"/>
-                              <Component id="RegistroClientes" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnHabitaciones" max="32767" attributes="0"/>
+                              <Component id="btnReservas" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnClientes" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -97,17 +97,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="RegistroClientes" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="btnClientes" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
                       <Component id="txtRClientes" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtRReserva" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="RegistroReservas" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
+                      <Component id="btnReservas" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="RegistroHabitacion" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btnHabitaciones" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                       <Component id="txtRHabitaciones" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="49" max="32767" attributes="0"/>
@@ -118,7 +118,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="RegistroClientes">
+        <Component class="javax.swing.JButton" name="btnClientes">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ef" green="e3" red="ef" type="rgb"/>
@@ -128,6 +128,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Registro de Clientes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClientesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="txtRClientes">
           <Properties>
@@ -145,7 +148,7 @@
             <Property name="text" type="java.lang.String" value="-Gestione reservas de los clientes."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="RegistroReservas">
+        <Component class="javax.swing.JButton" name="btnReservas">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ef" green="e6" red="ef" type="rgb"/>
@@ -155,8 +158,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Registro de reservas"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReservasActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="RegistroHabitacion">
+        <Component class="javax.swing.JButton" name="btnHabitaciones">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ef" green="e6" red="ef" type="rgb"/>
@@ -166,6 +172,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Registro de Habitaciones"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHabitacionesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="txtRHabitaciones">
           <Properties>

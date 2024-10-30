@@ -9,15 +9,15 @@ import java.util.List;
 public class HabitacionList {
     List<Habitacion> listaHabitaciones = new ArrayList<>();
     
-    public void agregarHabitacion(Habitacion h){
+    public void agregar(Habitacion h){
         listaHabitaciones.add(h);
     }
     
-    public void quitarHabitacion(Habitacion h){
+    public void quitar(Habitacion h){
         listaHabitaciones.remove(h);
     }
     
-    public Habitacion obtenerHabitacion(int pos){
+    public Habitacion obtener(int pos){
         return listaHabitaciones.get(pos);
     }
     
@@ -25,31 +25,7 @@ public class HabitacionList {
         return this.listaHabitaciones;
     }
     
-    public Habitacion buscarHabitacion(int num) {
-        for (Habitacion habitacion : listaHabitaciones) {
-            if (habitacion.getNumHabitacion() == num) {
-                return habitacion;
-            }
-        }
-        return null;
+    public int tamaño(){
+        return listaHabitaciones.size();
     }
-    
-    public boolean ocuparHabitacion(int num) {
-        Habitacion habitacion = buscarHabitacion(num);
-        if (habitacion != null && !habitacion.estaDisponible()) {
-            habitacion.setDisponibilidad(true);
-            return true;
-        }
-        return false;
-    }
-    
-     public boolean desocuparHabitacion(int num) {
-        Habitacion habitacion = buscarHabitacion(num);
-        if (habitacion != null && habitacion.estaDisponible()) {
-            habitacion.setDisponibilidad(true);
-            return true;
-        }
-        return false;
-    }
-     
 }

@@ -38,7 +38,7 @@ public class Hotel {
     
     public Habitacion buscarHabitacionDisponible() {
         for (Habitacion habitacion : listaHabitaciones){
-            if(habitacion.EstaDisponible()){
+            if(habitacion.estaDisponible()){
                 return habitacion;
             }
         }
