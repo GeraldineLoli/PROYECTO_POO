@@ -5,6 +5,10 @@ public class ClienteJuridico extends Cliente{
     private String razonSocial;
     private String RUC;
 
+    public ClienteJuridico() {
+    }
+
+    
     public ClienteJuridico(String razonSocial, String RUC, String codigoCliente, String documentoIdentificacion, String nombre, String telefono, String direccion, String email) {
         super(codigoCliente, documentoIdentificacion, nombre, telefono, direccion, email);
         this.razonSocial = razonSocial;
