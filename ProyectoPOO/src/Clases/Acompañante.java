@@ -20,5 +20,4 @@ public class Acompañante extends Persona {
         this.reserva = reserva;
     }
     
-    
 }
