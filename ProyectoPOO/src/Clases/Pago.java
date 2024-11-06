@@ -9,7 +9,7 @@ public class Pago {
     public Pago(double monto, String metodoPago, boolean terminado) {
         this.monto = monto;
         this.metodoPago = metodoPago;
-        this.terminado = terminado;
+        this.terminado = false;
     }
 
     public double getMonto() {
