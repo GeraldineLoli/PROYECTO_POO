@@ -35,13 +35,5 @@ public class Hotel {
     public void setListaHabitaciones(Habitacion[] listaHabitaciones) {
         this.listaHabitaciones = listaHabitaciones;
     }
-    
-    public Habitacion buscarHabitacionDisponible() {
-        for (Habitacion habitacion : listaHabitaciones){
-            if(habitacion.estaDisponible()){
-                return habitacion;
-            }
-        }
-        return null;
-    }
+  
 }

@@ -4,13 +4,13 @@ package Clases;
 public class Habitacion {
     private int numHabitacion;
     private String tipoHabitacion;
-    private boolean disponibilidad;
+    private String disponibilidad;
     private String numeroTelefonoHabitacion;
 
     public Habitacion() {
     }
 
-    public Habitacion(int numHabitacion, String tipoHabitacion, boolean disponibilidad, String numeroTelefonoHabitacion) {
+    public Habitacion(int numHabitacion, String tipoHabitacion, String disponibilidad, String numeroTelefonoHabitacion) {
         this.numHabitacion = numHabitacion;
         this.tipoHabitacion = tipoHabitacion;
         this.disponibilidad = disponibilidad;
@@ -33,11 +33,15 @@ public class Habitacion {
         this.tipoHabitacion = tipoHabitacion;
     }
 
-    public boolean isDisponibilidad() {
+    public String isDisponibilidad() {
         return disponibilidad;
     }
 
-    public void setDisponibilidad(boolean disponibilidad) {
+    public String getDisponibilidad() {
+        return disponibilidad;
+    }
+
+    public void setDisponibilidad(String disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
 
@@ -47,18 +51,6 @@ public class Habitacion {
 
     public void setNumeroTelefonoHabitacion(String numeroTelefonoHabitacion) {
         this.numeroTelefonoHabitacion = numeroTelefonoHabitacion;
-    }
-    
-    public boolean estaDisponible() {
-        return disponibilidad;
-    }
-    
-    public void reservarHabitacion() {
-        this.disponibilidad = false;
-    }
-    
-    public void desocuparHabitacion() {
-        this.disponibilidad = true;
     }
 
 }
