@@ -1,0 +1,16 @@
+Tipo Reserva: Reserva
+Fecha Reserva: 10/10/2004
+Fecha Ingreso: 10/10/2004
+Fecha Salida: 10/10/2004
+Costo: 500
+Estado: Alquiler
+Habitación: 
+Cliente: 
+Tipo Reserva: Alquiler
+Fecha Reserva: 10/10/2004
+Fecha Ingreso: 10/10/2004
+Fecha Salida: 10/10/2004
+Costo: 1000
+Estado: Pagada
+Habitación: 
+Cliente: 

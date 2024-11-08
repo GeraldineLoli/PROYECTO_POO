@@ -62,6 +62,7 @@ public class RegistroClientes extends javax.swing.JFrame {
         rbPersonaJuridica = new javax.swing.JRadioButton();
         RazónSocial1 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
+        btnVolver = new javax.swing.JToggleButton();
         Registro1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblClientesNatural = new javax.swing.JTable();
@@ -127,6 +128,13 @@ public class RegistroClientes extends javax.swing.JFrame {
 
         RazónSocial1.setText("Codigo Cliente:");
 
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -134,11 +142,6 @@ public class RegistroClientes extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnListar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnGuardar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
@@ -154,7 +157,10 @@ public class RegistroClientes extends javax.swing.JFrame {
                                 .addComponent(jlFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(NumCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE))
-                            .addComponent(RazónSocial1))
+                            .addComponent(RazónSocial1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(btnVolver)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -172,7 +178,12 @@ public class RegistroClientes extends javax.swing.JFrame {
                                     .addComponent(txtdirec)
                                     .addComponent(txtcorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                                     .addComponent(txtCodigo))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnListar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnGuardar)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,7 +233,8 @@ public class RegistroClientes extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
-                    .addComponent(btnListar)))
+                    .addComponent(btnListar)
+                    .addComponent(btnVolver)))
         );
 
         Registro1.setBackground(new java.awt.Color(204, 204, 255));
@@ -466,6 +478,12 @@ public class RegistroClientes extends javax.swing.JFrame {
         txtRS.setVisible(true);
         txtRuc.setVisible(true);
     }//GEN-LAST:event_rbPersonaJuridicaActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        Menu menuPrincipal = new Menu();
+        menuPrincipal.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
     
     
     public void limpiarControles(){
@@ -537,6 +555,7 @@ public class RegistroClientes extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarCN;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnListar;
+    private javax.swing.JToggleButton btnVolver;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel correo;
